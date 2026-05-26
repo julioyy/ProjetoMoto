@@ -23,5 +23,5 @@ public void moverCima() {
 
 public void moverBaixo() {
     this.setY(this.getY() + 4);
-} //mover 2 diagonais 
+} //criar mover 2 diagonais
 }
