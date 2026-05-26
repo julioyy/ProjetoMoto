@@ -19,14 +19,14 @@ public class Carro extends DesenhoAnimado {
 	public void run() {
 		while (true) {
 			switch (loopStatus) {
-				case 0: this.setX(this.getX() + 20); break;
+				case 0: this.setX(this.getX() + 5); break;
 				case 1: this.setY(this.getY() + 0); break;
 				case 2: this.setX(this.getX() - 0); break;
 				case 3: this.setY(this.getY() - 0); break;
 			}
 
 			try {
-				Thread.sleep(100);
+				Thread.sleep(10);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

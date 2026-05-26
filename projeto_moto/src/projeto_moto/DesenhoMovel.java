@@ -11,10 +11,10 @@ public class DesenhoMovel extends Desenho {
 	}
 	
 	public void moverDireita() {
-		this.setX(this.getX() + 2);
+		this.setX(this.getX() + 0);
 	}
 	
 	public void moverEsquerda() {
-		this.setX(this.getX() - 2);
+		this.setX(this.getX() - 0);
 	}
 }

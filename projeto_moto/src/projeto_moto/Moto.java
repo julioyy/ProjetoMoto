@@ -10,7 +10,7 @@ public class Moto extends DesenhoMovel {
 	}
 	@Override
     public void moverDireita() {
-        this.setX(this.getX() + 5);
+        this.setX(this.getX() + 10);
     }
 
     @Override
