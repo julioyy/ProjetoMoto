@@ -10,11 +10,11 @@ public class DesenhoMovel extends Desenho {
 		super(x, y, path);
 	}
 	
-	public void moverDireita() {
+	public void moverDireita() throws PosicaoInvalidaException {
 		this.setX(this.getX() + 0);
 	}
 	
-	public void moverEsquerda() {
+	public void moverEsquerda() throws PosicaoInvalidaException {
 		this.setX(this.getX() - 0);
 	}
 }

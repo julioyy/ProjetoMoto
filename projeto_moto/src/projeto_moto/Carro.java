@@ -24,7 +24,9 @@ public class Carro extends DesenhoAnimado {
 				case 2: this.setX(this.getX() - 0); break;
 				case 3: this.setY(this.getY() - 0); break;
 			}
-
+			 if (this.getX() >= 1950) {
+		            this.setX(-400);
+			 }
 			try {
 				Thread.sleep(10);
 			} catch (InterruptedException e) {

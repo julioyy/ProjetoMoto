@@ -21,7 +21,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	public Principal() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pista = new Desenho(0, 0, "pista.png");       // fundo: imagem de uma pista/estrada
-		moto  = new Moto(200, 750, "moto.png");        // moto controlada pelo usuário
+		moto  = new Moto(100, 750, "moto.png");        // moto controlada pelo usuário
 		carro = new Carro(100, 500, "carro.png");        // carro que se move automaticamente
 		this.addKeyListener(this);
 	}
@@ -82,6 +82,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	}
 
 	public void keyPressed(KeyEvent evt) {
+		try {
 		if (evt.getKeyCode() == KeyEvent.VK_RIGHT) {
 			moto.moverDireita();
 		} else if (evt.getKeyCode() == KeyEvent.VK_LEFT) {
@@ -90,9 +91,21 @@ public class Principal extends JFrame implements KeyListener, Runnable {
             moto.moverCima();
         } else if (evt.getKeyCode() == KeyEvent.VK_DOWN) {
             moto.moverBaixo();
+		}  else if (evt.getKeyCode() == KeyEvent.VK_E) {
+		    moto.moverDiagonalSuperiorDireito();
+		} else if (evt.getKeyCode() == KeyEvent.VK_D) {
+		    moto.moverDiagonalInferiorDireito();
 		}
-	}
-
+	} catch (PosicaoInvalidaException e) {  // Reposiciona a moto e o carro
+		if (e.getMessage().equals("MOTO")) {
+		moto.setX(-320);
+        moto.setY(750);
+		 } else if (e.getMessage().equals("CARRO")) {
+        carro.setX(-400);
+        carro.setY(500);
+		 }
+	   }
+	}	
 	public void keyReleased(KeyEvent arg0) {}
 	public void keyTyped(KeyEvent arg0) {}
 }
