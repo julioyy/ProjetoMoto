@@ -11,7 +11,7 @@ public class Carro extends DesenhoAnimado {
 	public Carro(int x, int y, String path) {
 		super(x, y, path);
 		// Thread daemon: encerra junto com a JVM quando a janela fecha
-		t.setDaemon(true);
+		t.setDaemon(true);//entender
 		t.start();
 	}
 
@@ -28,7 +28,7 @@ public class Carro extends DesenhoAnimado {
 		            this.setX(-400);
 			 }
 			try {
-				Thread.sleep(10);
+				Thread.sleep(3);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

@@ -16,7 +16,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	private static final long serialVersionUID = 1L;
 
 	// Thread dedicada para redesenhar a tela continuamente
-	private Thread loopRenderizacao = new Thread(this);
+	private Thread loopRenderizacao = new Thread(this); //entender
 
 	public Principal() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,7 +35,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 		t.createBufferStrategy(2);
 
 		// Inicia o loop de renderização APÓS a janela estar visível
-		t.loopRenderizacao.setDaemon(true);
+		t.loopRenderizacao.setDaemon(true);//entender
 		t.loopRenderizacao.start();
 	}
 
@@ -43,7 +43,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	@Override
 	public void run() {
 		while (true) {
-			renderizarGraphics();
+			renderizarGraphics();//entender tudo
 			try {
 				Thread.sleep(16); // ~60 FPS
 			} catch (InterruptedException e) {
@@ -54,7 +54,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 
 	// EVITAR ALTERAR ESSE MÉTODO
 	public void renderizarGraphics() {
-		if (getBufferStrategy() == null) return;
+		if (getBufferStrategy() == null) return;//entender
 		if (!getBufferStrategy().contentsLost()) getBufferStrategy().show();
 		Graphics g = getBufferStrategy().getDrawGraphics();
 
@@ -70,7 +70,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 
 	// ESSE DEVE SER O MÉTODO QUE DEVE SER ADAPTADO AO PROJETO
 	public void renderizarImagens(Graphics g2) {
-		g2.drawImage(pista.getImg(), 0, 0, getWidth(), getHeight(), null);
+		g2.drawImage(pista.getImg(), 0, 0, getWidth(), getHeight(), null);//entender
 		moto.desenhar(g2);
 		carro.desenhar(g2);
 	}
