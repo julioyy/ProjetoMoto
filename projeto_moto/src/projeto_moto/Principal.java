@@ -16,7 +16,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	private static final long serialVersionUID = 1L;
 
 	// Thread dedicada para redesenhar a tela continuamente
-	private Thread loopRenderizacao = new Thread(this); //entender
+	private Thread loopRenderizacao = new Thread(this);
 
 	public Principal() {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -35,7 +35,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 		t.createBufferStrategy(2);
 
 		// Inicia o loop de renderização APÓS a janela estar visível
-		t.loopRenderizacao.setDaemon(true);//entender
+		t.loopRenderizacao.setDaemon(true);
 		t.loopRenderizacao.start();
 	}
 
@@ -43,18 +43,18 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	@Override
 	public void run() {
 		while (true) {
-			renderizarGraphics();//entender tudo
+			renderizarGraphics();
 			try {
 				Thread.sleep(16); // ~60 FPS
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+			
 			}
 		}
 	}
 
 	// EVITAR ALTERAR ESSE MÉTODO
 	public void renderizarGraphics() {
-		if (getBufferStrategy() == null) return;//entender
+		if (getBufferStrategy() == null) return; //verifica se a tela esta pronta para desenhar
 		if (!getBufferStrategy().contentsLost()) getBufferStrategy().show();
 		Graphics g = getBufferStrategy().getDrawGraphics();
 
@@ -70,7 +70,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 
 	// ESSE DEVE SER O MÉTODO QUE DEVE SER ADAPTADO AO PROJETO
 	public void renderizarImagens(Graphics g2) {
-		g2.drawImage(pista.getImg(), 0, 0, getWidth(), getHeight(), null);//entender
+		g2.drawImage(pista.getImg(), 0, 0, getWidth(), getHeight(), null);
 		moto.desenhar(g2);
 		carro.desenhar(g2);
 	}
@@ -78,7 +78,7 @@ public class Principal extends JFrame implements KeyListener, Runnable {
 	// EVITAR ALTERAR ESSE MÉTODO — renderização feita pelo loop manual
 	@Override
 	public void paint(Graphics g) {
-		// Deixado vazio intencionalmente: a renderização é feita pelo loop
+		// Deixado vazio intencionalmente: pois a  renderização já é feita pelo loop
 	}
 
 	public void keyPressed(KeyEvent evt) {
